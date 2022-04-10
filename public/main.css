@@ -1,0 +1,18 @@
+@import url(https://mondayblues.netlify.app/stylesheets/main.css);        
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: var(--color-white);
+}
+
+:root {
+    --color-light-gray: grey
+}
+
+.clickable-object {
+    cursor: pointer;
+}
