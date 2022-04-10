@@ -1,0 +1,27 @@
+.home-page + footer{
+    position: fixed;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+
+footer p{
+    text-align: center;
+}
+
+footer {
+    margin: 0 2rem;
+    padding: 2rem;
+    border-top: 1px solid var(--color-light-gray);
+}
+
+.author-name {
+    font-family: 'Lobster Two', cursive;
+    font-size: 1.7rem;
+}
+
+@media (max-width: 480px) {
+    .home-page + footer {
+        position: static;
+    }
+}
