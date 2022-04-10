@@ -1,0 +1,79 @@
+.home-page {
+    gap: 15%;
+    margin:2% 5%;
+}
+
+.image-container {
+    margin: 0;
+}
+
+.home-page .heading {
+    font-family: 'Lobster Two', cursive;
+    font-size: 5rem;
+}
+
+.home-page .contents {
+    width: 45%;
+    gap: 2rem;
+}
+
+.contents button {
+    width: fit-content;
+    font-size: 1.5rem;
+}
+
+.contents .brand-description {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1450px) {
+    html {
+        font-size: 14px;
+    }
+
+    .image-container img{
+        width: 80%;
+    }
+
+    .home-page {
+        gap: 10%;
+        margin:10% 5%;
+    }
+}
+
+@media (max-width: 1050px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 970px) {
+    .home-page .contents {
+        width: 50%;
+    }
+}
+
+@media (max-width: 760px) {
+    .home-page .contents {
+        width: 65%;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-page .contents {
+        min-width: 90%;
+        justify-self: center;
+    }
+    
+}
+
+@media (max-width: 400px) {
+    .home-page .contents {
+        min-width: 90%;
+    }
+
+    html {
+        font-size: 10px;
+    }
+
+}
