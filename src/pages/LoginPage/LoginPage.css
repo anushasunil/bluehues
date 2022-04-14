@@ -1,0 +1,111 @@
+.image-container img{
+    width: 70%
+}
+
+.image-container {
+    align-self: flex-start;
+}
+
+
+form {
+    width: clamp(20rem, 30rem, 35rem);
+    padding: 1rem;
+    box-shadow: var(--mild-box-shadow);
+    border-radius: var(--container-border);
+    margin: 3% 0;
+}
+
+.form-heading {
+    font-family: 'Lobster Two', cursive;
+    padding: 1rem 0;
+}
+
+form .inner-icon {
+    font-size: 1.3rem;
+    padding: 8px;
+    color: var(--color-light-gray)
+}
+
+.validation-message {
+    color: var(--color-error-dark);
+    font-size: 1.2rem;
+    padding: 0 8px;
+}
+
+form label {
+    font-size: 1.25rem
+}
+
+form li{
+    margin: 1rem 0;
+}
+
+.save-my-info {
+    gap: 8px;
+}
+
+.actions {
+    padding: 8px;
+}
+
+.actions span p,
+.save-my-info p {
+    font-size: 1.1rem;
+}
+
+.actions span {
+    color: var(--color-tertiary);
+    border-bottom: 2px solid var(--color-reset);
+}
+
+.save-my-info {
+    font-size: 1.3rem;
+}
+
+button {
+    border-radius: 0;
+    box-shadow: var(--shadow-mild);
+}
+
+.action-btn button {
+    box-shadow: none;
+}
+
+.action-btn button:active {
+    top: 0;
+    border: 2px solid black;
+}
+
+.action-btn p {
+    font-size: 1.3rem;
+}
+
+.solid-primary:hover {
+    background-color: var(--color-tertiary-light);
+    color: var(--color-primary)
+}
+
+.transparent button p {
+    text-decoration: underline;
+}
+
+.outline-secondary {
+    padding: 12px 20px;
+}
+
+.icon-with-text {
+    background-color: var(--color-reset);
+}
+
+.icon-with-text p {
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.icon-with-text p:hover {
+    border-bottom: 1px solid;
+}
+
+.login-page {
+    gap: 5%;
+}
