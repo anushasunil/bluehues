@@ -8,9 +8,18 @@ nav .brand-name {
 }
 
 .navbar-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
+}
+
+.navbar {
+    gap: 3rem
 }
 
 .navbar-action {
     gap: 1rem;
 }
+
+.navbar-action p {
+    font-size: 1.7rem
+}
+
