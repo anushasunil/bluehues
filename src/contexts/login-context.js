@@ -24,8 +24,6 @@ const loginReducer = (userCredentials, action) => {
 }
 
 const userInfoReducer = (userInfo, action) => {
-    console.log("got it here in login ", action);
-
     switch(action.type) {
         case "DETAILS" : 
             return {...userInfo, details: action.payload}
