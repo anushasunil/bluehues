@@ -49,7 +49,7 @@ const LoginContextProvider = ({children}) => {
             if(emptyFields.length === 0)
             {
                 const response = await axios.post("/api/auth/login", creds);
-                console.log(response.data, response.data.encodedToken);
+                setValidationMessage("");
                 if(response.status === 200) {
                     setUserLoggedIn(true);
                     userInfoDispatch({type: "DETAILS", payload : response.data.foundUser});
