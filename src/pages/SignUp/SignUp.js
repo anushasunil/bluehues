@@ -29,7 +29,7 @@ export const SignUpPage = () => {
                 <img src="assets/signup-header.svg" alt="login-header-img"/>
             </div>
             <form className="signup-form" onSubmit={(e) => {signupHandler(e, signupDetails)}}>
-                <h3 className="form-heading">Log In</h3>
+                <h3 className="form-heading">Sign Up</h3>
                 <ul>
                     <li>
                         <label forlabel="Email-Address">
