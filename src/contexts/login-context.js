@@ -60,18 +60,18 @@ const LoginContextProvider = ({children}) => {
                 }
             }
             else {
-                setValidationMessage("*Please fill all the fields")
+                setValidationMessage("*Please fill all the fields");
             }
         }
         catch(error) {
             if(error.response.status === 401) {
-                setValidationMessage("*Incorrect Password. Please try again!")
+                setValidationMessage("*Incorrect Password. Please try again!");
             }
             else if(error.response.status === 404) {
-                console.log("navigate to signup page");
+                navigate("/signup");
             }
             else {
-                setValidationMessage("")
+                setValidationMessage("");
             }
         };
     }
