@@ -2,11 +2,16 @@ import "../LoginPage/LoginPage.css"
 import "./SignUp.css"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useSignup } from "../../contexts/signup-context";
+import { useSignup } from "../../contexts/signup/signup-context";
 
 export const SignUpPage = () => {
 
-    const {signupDetails, signupDispatch, validationMessage, signupHandler} = useSignup();
+    const {
+        signupDetails, 
+        signupDispatch, 
+        validationMessage, 
+        signupHandler
+    } = useSignup();
     const [inputType, setInputType] = useState("password");
     const [isAPasswordMatch, setPasswordMatch] = useState("");
     const inputTypeHandler = () => {
@@ -131,26 +136,6 @@ export const SignUpPage = () => {
                     </li>
                     <li>
                         {isAPasswordMatch && <small className="validation-message">{isAPasswordMatch}</small>}
-                    </li>
-                    <li>
-                        <label forlabel="phone-no">
-                            Contact no.
-                        </label>
-                        <div className="input-box display-flex-column">
-                            <div className="input-icon-container">
-                                <input 
-                                type="number" 
-                                maxLength={10}
-
-                                placeholder="phone no." 
-                                className="flex-grow"
-                                onChange={(e)=>{
-                                    if(e.target.value.length !== 0)
-                                        signupDispatch({type: "PHONE_NO", payload: e.target.value})
-                                }}  
-                                />
-                            </div>
-                        </div>
                     </li>
                     <li>
                          {validationMessage && (<small className="validation-message bold">{validationMessage}</small>)} 
