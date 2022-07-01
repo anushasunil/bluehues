@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { Nav, Footer } from "../src/Components"
-import { Home, MockbeeHome, MockmanComponent, LoginPage, SignUpPage} from "../src/pages"
+import { Nav, Footer } from "./Components"
+import { Home, MockbeeHome, MockmanComponent, LoginPage, SignUpPage} from "./pages"
 
 function App() {
   return (
