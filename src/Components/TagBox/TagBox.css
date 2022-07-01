@@ -36,12 +36,12 @@
 }
 
 .tags {
-    gap: 1rem;
+    margin: 1rem 0;
+    gap: 8px;
     border-radius: 22px;
     width: fit-content;
-    padding: 8px;
-    box-shadow: var(--mild-box-shadow);
-    backdrop-filter: saturate(300%);
+    padding: 8px 14px;
+    backdrop-filter: saturate(500%);
 }
 
 .tags-display  {

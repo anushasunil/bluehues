@@ -27,7 +27,6 @@
 .main-container {
    display: grid;
    grid-template-columns: repeat(auto-fill, 28rem);
-   justify-content: center;
    align-items: center;
    margin-bottom: 6rem;
 }
