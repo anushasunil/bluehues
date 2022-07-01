@@ -1,0 +1,85 @@
+.select-tags {
+    width:80%;
+    max-width: 25rem;
+    position: relative;
+    left: 17%;
+    padding: 1rem;
+    margin: 1rem 0;
+    gap: 1rem;
+    border-radius: var(--container-border);
+    background-color: var(--color-white);
+    filter: drop-shadow(3px 4px 3px var(--color-light-gray));
+}
+
+.select-tags .icons {
+    font-size: 1.5rem;
+    padding: 6px;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--circle-border);
+    transition: 0.5s;
+}
+
+.select-tags .icons:hover {
+    background-color: grey;
+    color: white;
+}
+
+.tag-name {
+    width: 65%;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    padding: 4px;
+    font-size: 1.7rem;
+    background-color: var(--color-reset);
+}
+
+.tags {
+    gap: 1rem;
+    border-radius: 22px;
+    width: fit-content;
+    padding: 8px;
+    box-shadow: var(--mild-box-shadow);
+    backdrop-filter: saturate(300%);
+}
+
+.tags-display  {
+    gap: 1rem;
+}
+
+.tag-color-one {
+    background-color: #F2D1D8;
+    color: #F2D1D8
+}
+
+.tag-color-two {
+    background-color: #F1F1F1;
+    color: #F1F1F1;
+}
+
+.tag-color-three {
+    background-color: #B6C7D7;
+    color: #B6C7D7;
+}
+
+.tag-color-four {
+    background-color: #F2B001;
+    color: #F2B001;
+}
+
+.tag-color-five {
+    background-color: #8697A7;
+    color: #8697A7;
+}
+
+.tags p {
+    font-size:1.5rem;
+    color: var(--color-black);
+}
+
+.tags .icon {
+    font-size: 1.5rem;
+    /* filter: brightness(60%); */
+    background-color: var(--color-reset);
+}
