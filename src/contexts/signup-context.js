@@ -13,18 +13,18 @@ const defaultSignUpdetailsTemplate = {
     contact: "",
 }
 
-const signupReducer = (signupDetails, action) => {
-    switch(action.type) {
+const signupReducer = (signupDetails, {type, payload}) => {
+    switch(type) {
         case "EMAIL" :
-            return {...signupDetails, email : action.payload}
+            return {...signupDetails, email : payload}
         case "PASSWORD" : 
-            return {...signupDetails, password : action.payload}
+            return {...signupDetails, password : payload}
         case "FIRST_NAME" : 
-            return {...signupDetails, firstName : action.payload}
+            return {...signupDetails, firstName : payload}
         case "LAST_NAME" : 
-            return {...signupDetails, lastName : action.payload}
+            return {...signupDetails, lastName : payload}
         case "PHONE_NO" : 
-            return {...signupDetails, contact : action.payload}
+            return {...signupDetails, contact : payload}
         default: return ({...defaultSignUpdetailsTemplate})
     }
 }

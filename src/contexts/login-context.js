@@ -13,22 +13,22 @@ const userInfoTemplate = {
     encodedToken: ""
 };
 
-const loginReducer = (userCredentials, action) => {
-    switch(action.type) {
+const loginReducer = (userCredentials,{type, payload}) => {
+    switch(type) {
         case "EMAIL" :
-            return {...userCredentials, email : action.payload}
+            return {...userCredentials, email : payload}
         case "PASSWORD" : 
-            return {...userCredentials, password : action.payload}
+            return {...userCredentials, password : payload}
         default: return ({...defaultCredentialTemplate})
     }
 }
 
-const userInfoReducer = (userInfo, action) => {
-    switch(action.type) {
+const userInfoReducer = (userInfo, {type, payload}) => {
+    switch(type) {
         case "DETAILS" : 
-            return {...userInfo, details: action.payload}
+            return {...userInfo, details: payload}
         case "ENCODED_TOKEN" :
-            return {...userInfo, encodedToken: action.payload}
+            return {...userInfo, encodedToken: payload}
         default: return ({...userInfoTemplate})
     }
 }
