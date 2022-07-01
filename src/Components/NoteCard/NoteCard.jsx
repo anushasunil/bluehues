@@ -1,4 +1,5 @@
 import "./NoteCard.css"
+import "../TagBox/TagBox.css"
 import { useNotes } from "../../contexts"
 
 export const NotesToDisplay = () => {
@@ -9,7 +10,8 @@ return(
         dataList.noteslist.map((
             {
                 color, 
-                title, 
+                title,
+                tags, 
                 priority, 
                 content, 
                 createdAt
@@ -25,9 +27,10 @@ return(
                         {title}
                     </h5>
                     {console.log(priority && true)}
-                    {priority == (<p className="badge notification text">
+                    <p className="badge notification text" 
+                        style={{display: priority? "block" : "none"}}>
                         {priority}
-                    </p>)}
+                    </p>
                 </div>
                 <textarea 
                     value={content} 
@@ -35,6 +38,17 @@ return(
                     readOnly 
                     className="note-content"
                 />
+                <div className="tags-to-display display-align-center">
+                    {
+                        tags.map(tagName => {
+                            return (
+                                <div className="tags">
+                                    <p>{tagName}</p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
                 <div className="created-details display-align-center">
                     <small> 
                         {createdAt}

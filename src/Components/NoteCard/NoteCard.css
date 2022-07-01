@@ -16,7 +16,7 @@
 
 .created-details {
     padding: 0 8px;
-    color: var(--color-light-gray);
+    color: var(--color-gray);
 }
 
 .created-details small {
@@ -24,12 +24,14 @@
 }
 
 .badge.notification.text {
-    padding: 1rem;
+    font-size:1rem;
+    padding: 14px;
     line-height: 0.5;
     border-radius: var(--button-border);
     top:8px;
     right:8px;
-    background-color: green;
+    background-color: var(--color-white);
+    color: var(--color-primary);
 }
 
 .note-content {
@@ -37,7 +39,14 @@
     border: none;
     background-color: var(--color-reset);
     font-size: 1.2rem;
-    /* color: var(--color-light-gray) */
+}
+
+.tags-to-display {
+    gap:8px
+}
+
+.tags-to-display .tags p{
+    font-size: 1.2rem
 }
 
 .note .action-box .icons{
