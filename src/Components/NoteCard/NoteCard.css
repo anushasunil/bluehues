@@ -1,0 +1,51 @@
+.note {
+    width: clamp(23rem, 25rem, 28rem);
+    padding: 1rem;
+    border-radius: var(--container-border);
+    position: relative;
+    box-shadow: var(--mild-box-shadow);
+    z-index: -1;
+    margin: 2rem;
+    background-color: var(--color-pastel-green);
+}
+
+.note-title {
+    font-size: 1.5rem;
+
+}
+
+.created-details {
+    padding: 0 8px;
+    color: var(--color-light-gray);
+}
+
+.created-details small {
+    font-size: 1.2rem;
+}
+
+.badge.notification.text {
+    padding: 1rem;
+    line-height: 0.5;
+    border-radius: var(--button-border);
+    top:8px;
+    right:8px;
+    background-color: green;
+}
+
+.note-content {
+    outline: none;
+    border: none;
+    background-color: var(--color-reset);
+    font-size: 1.2rem;
+    /* color: var(--color-light-gray) */
+}
+
+.note .action-box .icons{
+    font-size: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .note .action-box .icons{
+        font-size: 1.8rem;
+    }
+}
