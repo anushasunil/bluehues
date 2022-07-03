@@ -38,14 +38,15 @@ const LoginContextProvider = ({children}) => {
             const emptyFields = Object.keys(creds).filter(attribute => creds[attribute] === "");
             if(emptyFields.length === 0)
             {
-                const response = await axios.post("/api/auth/login", creds);
-                if(response.status === 200) {
+                const {data : {foundUser, encodedToken}, status} = await axios.post("/api/auth/login", creds);
+                setValidationMessage("");
+                if(status === 200) {
                     setUserLoggedIn(true);
-                    userInfoDispatch({type: "DETAILS", payload : response.data.foundUser});
-                    userInfoDispatch({type: "ENCODED_TOKEN", payload :localStorage.getItem("token")});
+                    userInfoDispatch({type: "DETAILS", payload : foundUser});
+                    userInfoDispatch({type: "ENCODED_TOKEN", payload : encodedToken});
                     navigate("/");
-                    localStorage.setItem("userInfo", JSON.stringify(response.data.foundUser));
-                    localStorage.setItem("token", response.data.encodedToken);
+                    localStorage.setItem("userName", foundUser.firstName);
+                    localStorage.setItem("token", encodedToken);
                 }
             }
             else {
