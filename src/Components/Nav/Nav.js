@@ -14,7 +14,7 @@ export const Nav = () => {
                 </li>}
                 { isUserLoggedIn &&  <li className="navbar-action display-align-center clickable-object">
                 <i className="fa-solid fa-user navbar-icon"></i>
-                <p>{userInfo.details.firstName}</p>
+                <p>{firstName}</p>
             </li>}
             { isUserLoggedIn && <li className="navbar-action display-align-center clickable-object">
                 <i className="fa-solid fa-power-off navbar-icon" onClick={logoutHandler}></i>
