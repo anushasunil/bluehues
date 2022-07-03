@@ -83,7 +83,7 @@ aside li:hover {
     }
 
     aside p:before, aside li:hover p {
-        background-color: #D0D0D2;
+        background-color: var(--color-white);
     }
 
     .btn-expanded {
