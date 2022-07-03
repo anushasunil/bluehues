@@ -95,13 +95,14 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
                 <ColorPalette showPalette={optionState.colorPalette} />
                 <TagSelect showCreateTag={optionState.createTags} optionDispatch={optionDispatch}/>
                 <div className="display-justify-end">
-                    <button className={`solid-primary btn-save ${title === ""? "solid-disabled" : ""}`}
+                    <button className={`solid-primary btn-save ${(title.trim())? "" : "solid-disabled"}`}
                     onClick={(e)=>{
                        clickHandler(e);
                        addNotes(newNote);
-
                     }}
-                    >Save</button>
+                > 
+                    Save
+                </button>
                 </div>
             </form>
         </div>

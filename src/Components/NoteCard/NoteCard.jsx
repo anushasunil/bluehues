@@ -19,14 +19,13 @@ return(
         ) => {
             return (
         
-            <div className="note" 
+            <div className="note display-flex-column display-justify-space-between" 
             style={{backgroundColor: (color == false)? "var(--color-faint-white)" : color}}
             >
                 <div className="header display-align-center display-justify-space-between">
                     <h5 className="note-title">
                         {title}
                     </h5>
-                    {console.log(priority && true)}
                     <p className="badge notification text" 
                         style={{display: priority? "block" : "none"}}>
                         {priority}

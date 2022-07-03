@@ -30,7 +30,6 @@ const NoteContextProvider = ({children}) => {
                     authorization: userInfo.encodedToken
                 } });
                 dataListDispatch({type: "GET_NOTES", payload: data.notes})
-                console.log("got notes in note-context", data.notes)
             }
         }
         catch(error) {
