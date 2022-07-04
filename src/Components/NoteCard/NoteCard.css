@@ -1,18 +1,21 @@
 .note {
     width: clamp(23rem, 25rem, 28rem);
-    height: 327px;
+    min-height: 22rem;
+    max-height: 26rem;
     padding: 1rem;
     border-radius: var(--container-border);
     position: relative;
     box-shadow: var(--mild-box-shadow);
-    z-index: -1;
     margin: 2rem;
     background-color: var(--color-pastel-green);
 }
 
+.note .header {
+    margin-top: 4rem;
+}
+
 .note-title {
     font-size: 1.5rem;
-
 }
 
 .created-details {
@@ -29,8 +32,8 @@
     padding: 14px;
     line-height: 0.5;
     border-radius: var(--button-border);
-    top:8px;
-    right:8px;
+    top:4.5rem;
+    right:1rem;
     background-color: var(--color-white);
     color: var(--color-primary);
 }
@@ -52,6 +55,22 @@
 
 .note .action-box .icons{
     font-size: 1.7rem;
+    padding: 1rem;
+    margin: 0;
+    border-radius: var(--circle-border);
+}
+
+.note .icon-pin {
+    font-size: 1.5rem;
+    padding: 1rem;
+    position: absolute;
+    margin: 8px;
+    right:0;
+    top:0
+}
+
+.note .icons:hover {
+    color: var(--color-primary);
 }
 
 @media (max-width: 700px) {
