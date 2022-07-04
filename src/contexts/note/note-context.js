@@ -3,7 +3,8 @@ import {
     createContext, 
     useContext, 
     useEffect, 
-    useReducer
+    useReducer, 
+    useState
 } from "react";
 import { useLogin } from "../login/login-context";
 import { 
@@ -21,15 +22,23 @@ const NoteContextProvider = ({children}) => {
     const [optionState, optionDispatch] = useReducer(optionReducer, defaultOptionState);
     const [newNote, noteDispatch] = useReducer(noteReducer, defaultNote);
     const [dataList, dataListDispatch] = useReducer(dataReducer, defaultDataReceived);
-    const {isUserLoggedIn, userInfo} = useLogin();
+    const { 
+        isUserLoggedIn, 
+        userInfo
+    } = useLogin();
+    const [hideNewNoteEditor, setNewNoteEditor] = useState("hide");
+    const [currentNoteList, setCurrentNoteList] = useState(dataList.notesList);
+
 
     const getNotes = async() => {
         try {
             if(isUserLoggedIn) {
-                const {data} = await axios.get("/api/notes", { headers: {
+                const {data: {notes}} = await axios.get("/api/notes", { headers: {
                     authorization: userInfo.encodedToken
                 } });
-                dataListDispatch({type: "GET_NOTES", payload: data.notes})
+                console.log(notes, "getnotes")
+                setCurrentNoteList(notes)
+                dataListDispatch({type: "GET_NOTES", payload: notes})
             }
         }
         catch(error) {
@@ -46,14 +55,31 @@ const NoteContextProvider = ({children}) => {
                     authorization: userInfo.encodedToken
                 } 
             });
-            const { status, data } = response;
-            console.log(note, "sjgdjhgs", status, data);
-            dataListDispatch({type: "ADD_NOTES", payload: data.notes})
+            const { data : {notes}} = response;
+            console.log(notes, "addnotes")
+            setCurrentNoteList(notes)
+            dataListDispatch({type: "ADD_NOTES", payload: notes})
         }
         catch(error){
-            console.error(error)
+            console.error(error);
         }
         
+    }
+
+    const updateNote = async(note) => {
+        try {
+            const response = await axios.post(`/api/notes/${note._id}`,
+            {note}, 
+            { 
+                headers: {
+                    authorization: userInfo.encodedToken
+                } 
+            });
+            console.log(response);
+        }
+        catch(error) {
+            console.error(error);
+        }
     }
 
     useEffect(()=>{
@@ -64,12 +90,17 @@ const NoteContextProvider = ({children}) => {
         <NoteContext.Provider 
         value = {
             { 
-                addNotes, 
+                addNotes,
+                updateNote, 
                 noteDispatch, 
                 newNote, 
                 dataList,
+                hideNewNoteEditor,
+                setNewNoteEditor,
                 optionDispatch,
-                optionState
+                optionState,
+                currentNoteList,
+                setCurrentNoteList
             }
         }>
             {children}

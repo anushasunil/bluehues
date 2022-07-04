@@ -2,8 +2,7 @@ import "./NewNoteEditor.css"
 import { 
     ColorPalette, 
     TagBox, 
-    TagSelect, 
-    clearAllTags 
+    TagSelect
 } from "..";
 import { useNotes } from "../../contexts";
 
@@ -12,10 +11,12 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
         newNote, 
         noteDispatch, 
         addNotes,
+        updateNote,
         optionState,
         optionDispatch 
     } = useNotes();
     const {
+        _id,
         title, 
         content, 
         priority, 
@@ -27,8 +28,6 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
         setNewNoteEditor("hide");
         optionDispatch({type: "CLEAR_OPTIONS"});
         noteDispatch({type: "DEFAULT_NOTE"});
-        clearAllTags()
-
     }
 
     return (
@@ -98,7 +97,10 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
                     <button className={`solid-primary btn-save ${(title.trim())? "" : "solid-disabled"}`}
                     onClick={(e)=>{
                        clickHandler(e);
-                       addNotes(newNote);
+                        (_id)?
+                        updateNote(newNote)
+                        :
+                        addNotes(newNote);
                     }}
                 > 
                     Save
