@@ -36,7 +36,6 @@ const NoteContextProvider = ({children}) => {
                 const {data: {notes}} = await axios.get("/api/notes", { headers: {
                     authorization: userInfo.encodedToken
                 } });
-                console.log(notes, "getnotes")
                 setCurrentNoteList(notes)
                 dataListDispatch({type: "GET_NOTES", payload: notes})
             }
@@ -56,7 +55,6 @@ const NoteContextProvider = ({children}) => {
                 } 
             });
             const { data : {notes}} = response;
-            console.log(notes, "addnotes")
             setCurrentNoteList(notes)
             dataListDispatch({type: "ADD_NOTES", payload: notes})
         }
@@ -75,7 +73,6 @@ const NoteContextProvider = ({children}) => {
                     authorization: userInfo.encodedToken
                 } 
             });
-            console.log(response);
         }
         catch(error) {
             console.error(error);

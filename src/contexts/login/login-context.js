@@ -45,8 +45,6 @@ const LoginContextProvider = ({children}) => {
                     userInfoDispatch({type: "DETAILS", payload : foundUser.firstName});
                     userInfoDispatch({type: "ENCODED_TOKEN", payload : encodedToken});
                     navigate("/");
-                    console.log("setting item", foundUser.firstName
-                    )
                     localStorage.setItem("userInfo", foundUser.firstName);
                     localStorage.setItem("token", encodedToken);
                 }
