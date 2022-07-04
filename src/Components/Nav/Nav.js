@@ -3,7 +3,7 @@ import "./Nav.css"
 import { Link } from "react-router-dom";
 
 export const Nav = () => {
-    const { isUserLoggedIn, userInfo : { details : {firstName}}, logoutHandler } = useLogin();
+    const { isUserLoggedIn, userInfo : { details } , logoutHandler } = useLogin();
     return (
         <nav className="display-align-center display-justify-space-between">
             <h1 className="brand-name">bluehues</h1>
@@ -14,7 +14,7 @@ export const Nav = () => {
                 </li>}
                 { isUserLoggedIn &&  <li className="navbar-action display-align-center clickable-object">
                 <i className="fa-solid fa-user navbar-icon"></i>
-                <p>{firstName}</p>
+                <p>{details}</p>
             </li>}
             { isUserLoggedIn && <li className="navbar-action display-align-center clickable-object">
                 <i className="fa-solid fa-power-off navbar-icon" onClick={logoutHandler}></i>

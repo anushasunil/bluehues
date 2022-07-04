@@ -27,7 +27,7 @@ const LoginContextProvider = ({children}) => {
    useEffect(()=>{
        if(localStorage.getItem("token")){
             setUserLoggedIn(true)
-            userInfoDispatch({type: "DETAILS", payload: JSON.parse(localStorage.getItem("userInfo"))});
+            userInfoDispatch({type: "DETAILS", payload: localStorage.getItem("userInfo")});
             userInfoDispatch({type: "ENCODED_TOKEN", payload: localStorage.getItem("token")});
        }
    },[isUserLoggedIn])
@@ -42,10 +42,12 @@ const LoginContextProvider = ({children}) => {
                 setValidationMessage("");
                 if(status === 200) {
                     setUserLoggedIn(true);
-                    userInfoDispatch({type: "DETAILS", payload : foundUser});
+                    userInfoDispatch({type: "DETAILS", payload : foundUser.firstName});
                     userInfoDispatch({type: "ENCODED_TOKEN", payload : encodedToken});
                     navigate("/");
-                    localStorage.setItem("userName", foundUser.firstName);
+                    console.log("setting item", foundUser.firstName
+                    )
+                    localStorage.setItem("userInfo", foundUser.firstName);
                     localStorage.setItem("token", encodedToken);
                 }
             }
