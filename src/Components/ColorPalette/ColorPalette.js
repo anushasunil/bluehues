@@ -16,7 +16,9 @@ export const ColorPalette = ({showPalette}) => {
                     <div className= {`color-pastel ${color}`} 
                     onClick={()=>{
                         noteDispatch({type: "NOTE_COLOR", payload: `var(--color-pastel-${color})` })
-                }}></div>
+                }}
+                key={color}
+                ></div>
                 )
             })
         }
