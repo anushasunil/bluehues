@@ -16,8 +16,8 @@ const defaultNote =  {
 }
 
 const defaultDataReceived = {
-    noteslist: [],
-    archivedNotes: [],
+    notesList: [],
+    archievedNotes: [],
     trashedNotes: [],
     pinnedNotes: []
 }
@@ -41,7 +41,7 @@ const dataReducer = (state, {type, payload}) => {
     switch(type) {
         case "GET_NOTES":
         case "ADD_NOTES":
-            return ({...state, noteslist : payload})
+            return ({...state, notesList : payload})
     }
 }
 
@@ -60,13 +60,15 @@ const noteReducer = (newNote, { type, payload }) => {
                 case "ADD":
                     return ({...newNote, tags: [...newNote.tags, payload.value]});
                 case "REMOVE":
-                    return ({...newNote, tags: newNote.tags.filter(tag => tag !== payload.value)})
+                    return ({...newNote, tags: newNote.tags.filter(tag => tag !== payload.value)});
             }
         case "NOTE_COLOR" : 
-            return ({...newNote, color: payload})
+            return ({...newNote, color: payload});
         case "CREATED_AT" :
-            return ({...newNote, createdAt : payload})
-        default: return (defaultNote)
+            return ({...newNote, createdAt : payload});
+        case "UPDATE_NOTE" :
+            return ({...payload});
+        default: return (defaultNote);
     }
 }
 

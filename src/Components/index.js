@@ -6,7 +6,6 @@ import { Aside } from "./Aside/Aside";
 import { NewNote } from "./NewNoteEditor/NewNoteEditor";
 import { TagBox } from "./TagBox/TagBox";
 import { TagSelect } from "./TagBox/TagBox";
-import { clearAllTags } from "./TagBox/TagBox";
 import { NotesToDisplay } from "./NoteCard/NoteCard";
 
 export {
@@ -19,5 +18,4 @@ export {
     NotesToDisplay,
     TagBox, 
     TagSelect,
-    clearAllTags
 }

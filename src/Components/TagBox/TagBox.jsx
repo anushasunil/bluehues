@@ -2,40 +2,25 @@ import "./TagBox.css";
 import { useState } from "react";
 import { useNotes } from "../../contexts/note/note-context";
 
-const clearAllTags = () => {
-    let tagBox = document.querySelector(".tags-display");
-    while(tagBox.firstChild)
-        tagBox.removeChild(tagBox.lastChild);
-}
-
-const addInTagBox = (tagNameValue, color, noteDispatch) => {
-
-    noteDispatch({type: "TAGS", payload: {action: "ADD", value: tagNameValue}});
-
-    let tagColor = color;
-    let tagBox = document.querySelector(".tags-display");
-
-    let tag = document.createElement("div");
-    tag.className = `tags display-align-center`
-
-    let tagName = document.createElement("p");
-    tagName.innerHTML = tagNameValue;
-
-    let xMark = document.createElement("i");
-    xMark.addEventListener("click", ()=>{
-        tagBox.removeChild(tag);
-        noteDispatch({type: "TAGS", payload: {action: "REMOVE", value: tagNameValue}});
-    })
-    xMark.className = `fa-solid fa-circle-xmark icon clickable-image ${tagColor}`;
-
-    tag.appendChild(tagName);
-    tag.appendChild(xMark);
-    tagBox.appendChild(tag);
-}
-
 const TagBox = () => {
+    const {newNote, noteDispatch} = useNotes();
+    const {tags, color} = newNote;
     return (
         <div className="tags-display display-align-center">
+            {
+                tags.map(tag => {
+                    return(
+                         <div className="tags display-align-center">
+                            <p>{tag}</p>
+                            <i className={`fa-solid fa-circle-xmark icon clickable-image ${color}`}
+                            onClick={()=>{
+                                noteDispatch({type: "TAGS", payload: {action: "REMOVE", value: tag}});
+                            }}
+                            ></i>
+                         </div>
+                    )
+                })
+            }
         </div>
     )
 }
@@ -54,7 +39,7 @@ const TagSelect = ({showCreateTag, optionDispatch}) => {
             <i className="fa-solid fa-plus icons display-align-center clickable-image" 
                 onClick={()=>{
                     if(!newNote.tags.includes(newTag)) 
-                        addInTagBox(newTag, newNote.color, noteDispatch)
+                    noteDispatch({type: "TAGS", payload: {action: "ADD", value: newTag}});
                     }
                 }>
             </i>
@@ -68,5 +53,4 @@ const TagSelect = ({showCreateTag, optionDispatch}) => {
 export {
     TagBox, 
     TagSelect, 
-    clearAllTags
 }

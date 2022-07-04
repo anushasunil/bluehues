@@ -13,8 +13,6 @@
     border-radius: var(--circle-border);
     margin: 8px;
     cursor: pointer;
-    /* filter: saturate(500%) */
-
 }
 
 .color-pastel:hover {
