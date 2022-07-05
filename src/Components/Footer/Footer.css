@@ -1,4 +1,4 @@
-.home-page + footer{
+.home-page + footer, .login-page + footer, .dashboard + footer{
     position: fixed;
     bottom:0;
     left: 0;
@@ -10,9 +10,9 @@ footer p{
 }
 
 footer {
-    margin: 0 2rem;
     padding: 2rem;
-    border-top: 1px solid var(--color-light-gray);
+    border-top: 1px solid var(--color-black);
+    backdrop-filter: blur(10px);
 }
 
 .author-name {
@@ -20,8 +20,14 @@ footer {
     font-size: 1.7rem;
 }
 
-@media (max-width: 900px) {
-    .home-page + footer {
+@media (max-width: 1270px) {
+    .login-page + footer{
+        position: static;
+    }
+}
+
+@media (max-width: 1000px) {
+    .home-page + footer , .login-page + footer{
         position: static;
     }
 }

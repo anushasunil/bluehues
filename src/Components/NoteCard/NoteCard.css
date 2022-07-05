@@ -1,0 +1,61 @@
+.note {
+    width: clamp(23rem, 25rem, 28rem);
+    height: 327px;
+    padding: 1rem;
+    border-radius: var(--container-border);
+    position: relative;
+    box-shadow: var(--mild-box-shadow);
+    z-index: -1;
+    margin: 2rem;
+    background-color: var(--color-pastel-green);
+}
+
+.note-title {
+    font-size: 1.5rem;
+
+}
+
+.created-details {
+    padding: 0 8px;
+    color: var(--color-gray);
+}
+
+.created-details small {
+    font-size: 1.2rem;
+}
+
+.badge.notification.text {
+    font-size:1rem;
+    padding: 14px;
+    line-height: 0.5;
+    border-radius: var(--button-border);
+    top:8px;
+    right:8px;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.note-content {
+    outline: none;
+    border: none;
+    background-color: var(--color-reset);
+    font-size: 1.2rem;
+}
+
+.tags-to-display {
+    gap:8px
+}
+
+.tags-to-display .tags p{
+    font-size: 1.2rem
+}
+
+.note .action-box .icons{
+    font-size: 1.7rem;
+}
+
+@media (max-width: 700px) {
+    .note .action-box .icons{
+        font-size: 1.8rem;
+    }
+}
