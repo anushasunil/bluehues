@@ -6,7 +6,7 @@ import { Aside } from "./Aside/Aside";
 import { NewNote } from "./NewNoteEditor/NewNoteEditor";
 import { TagBox } from "./TagBox/TagBox";
 import { TagSelect } from "./TagBox/TagBox";
-import { NotesToDisplay } from "./NoteCard/NoteCard";
+import { Toast } from "./Toast/Toast";
 
 export {
     Nav, 
@@ -15,7 +15,7 @@ export {
     ColorPalette, 
     Aside, 
     NewNote, 
-    NotesToDisplay,
     TagBox, 
     TagSelect,
+    Toast
 }

@@ -1,0 +1,14 @@
+.Toastify__toast-container {
+    bottom: 6rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+    .Toastify__toast-container {
+        width: 80%;
+        left :12%;
+        bottom: 7rem;
+        font-size: 1.4rem;
+    }
+}
