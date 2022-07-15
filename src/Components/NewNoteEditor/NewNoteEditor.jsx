@@ -10,7 +10,7 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
     const {
         newNote, 
         noteDispatch, 
-        addNotes,
+        addNote,
         updateNote,
         optionState,
         optionDispatch 
@@ -100,7 +100,7 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
                         (_id)?
                         updateNote(newNote)
                         :
-                        addNotes(newNote);
+                        addNote(newNote);
                     }}
                 > 
                     Save
