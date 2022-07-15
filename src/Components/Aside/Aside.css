@@ -65,6 +65,7 @@ aside li:hover {
         padding: 8px;
         border-radius: var(--container-border);
         font-weight: normal;
+        z-index: 9;
     }
 
     aside p:before {
@@ -75,7 +76,7 @@ aside li:hover {
         transform: rotate(45deg);
         left:-6px;
         top: 8px;
-        z-index: -1;
+        z-index: 3;
     }
 
     aside li p{
