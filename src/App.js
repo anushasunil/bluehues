@@ -1,16 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import { AppRoutes } from "./AppRoutes";
 import { Nav, Footer } from "../src/Components"
-import { Home, MockbeeHome, MockmanComponent} from "../src/pages"
+import { ToastContainer } from "react-toastify"
 
 function App() {
   return (
     <div className="App">
       <Nav/>
-      <Routes>
-        <Route path="/mockbee" element={<MockbeeHome/>}/>
-        <Route path="/mockman" element={<MockmanComponent/>}/>
-        <Route path="/" element={<Home/>}/>
-      </Routes>
+      <AppRoutes/>
+      <ToastContainer/>
       <Footer/>
     </div>
   );

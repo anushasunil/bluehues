@@ -1,0 +1,15 @@
+.sign-up-page {
+    gap: 5%;
+    min-width: 28rem; 
+}
+
+.image-container {
+    margin: 5% 0;
+    align-self: flex-start
+}
+
+@media (max-width: 1130px) {
+    .image-container img {
+        margin: 2% auto;
+    }
+}
