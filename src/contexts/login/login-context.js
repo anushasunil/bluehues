@@ -13,6 +13,7 @@ import {
     defaultCredentialTemplate,  
     loginReducer
 } from "./login-reducer";
+import { Toast } from "../../Components";
 
 const LoginContext = createContext("");
 
@@ -47,6 +48,10 @@ const LoginContextProvider = ({children}) => {
                     navigate("/");
                     localStorage.setItem("userInfo", foundUser.firstName);
                     localStorage.setItem("token", encodedToken);
+                    Toast({
+                        message: "User logged in successfully",
+                        type: "success"
+                    })
                 }
             }
             else {
@@ -64,6 +69,10 @@ const LoginContextProvider = ({children}) => {
     }
 
     const logoutHandler = () => {
+        Toast({
+            message: "User logged out successfully",
+            type: "success"
+        })
         loginDispatch("KEEP_DEFAULT");
         setUserLoggedIn(false);
         localStorage.removeItem("userInfo");
