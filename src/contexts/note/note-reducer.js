@@ -17,7 +17,7 @@ const defaultNote =  {
 
 const defaultDataReceived = {
     notesList: [],
-    archievedNotes: [],
+    archivedNotes: [],
     trashedNotes: [],
     pinnedNotes: []
 }
@@ -40,8 +40,12 @@ const optionReducer = (state, {type, payload}) => {
 const dataReducer = (state, {type, payload}) => {
     switch(type) {
         case "GET_NOTES":
-        case "ADD_NOTES":
-            return ({...state, notesList : payload})
+            return ({...state, notesList : payload});
+        case "GET_ARCHIVED_NOTES" :
+            return ({...state, archivedNotes: payload });
+        case "GET_TRASHED_NOTES":
+            return ({...state, trashedNotes: payload})
+        default : return (defaultDataReceived)
     }
 }
 
