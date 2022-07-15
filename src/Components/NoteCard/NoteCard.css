@@ -58,6 +58,8 @@
     padding: 1rem;
     margin: 0;
     border-radius: var(--circle-border);
+    position: relative;
+    z-index: 5;
 }
 
 .note .icon-pin {
