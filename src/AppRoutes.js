@@ -9,12 +9,16 @@ import {
     MockmanComponent, 
     LoginPage, 
     SignUpPage, 
-    Dashboard
+    Dashboard,
+    Archives,
+    TrashedNotes
 } from "../src/pages"
 
 export const AppRoutes = () => {
     return (
         <Routes>
+            <Route path="/trashedNotes" element={<TrashedNotes/>}/>
+            <Route path="/archives" element={<Archives/>}/>
             <Route path="/mockbee" element={<MockbeeHome/>}/>
             <Route path="/mockman" element={<MockmanComponent/>}/>
             <Route path="/" element={<Home/>}/>
