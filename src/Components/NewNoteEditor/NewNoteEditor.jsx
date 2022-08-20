@@ -96,11 +96,13 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
                 <div className="display-justify-end">
                     <button className={`solid-primary btn-save ${(title.trim())? "" : "solid-disabled"}`}
                     onClick={(e)=>{
-                       clickHandler(e);
-                        (_id)?
-                        updateNote(newNote)
-                        :
-                        addNote(newNote);
+                        if(newNote.title) {
+                            clickHandler(e);
+                            (_id)?
+                            updateNote(newNote)
+                            :
+                            addNote(newNote);
+                        }
                     }}
                 > 
                     Save
