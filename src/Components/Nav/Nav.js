@@ -10,7 +10,7 @@ export const Nav = () => {
             <ul className="navbar display-align-center">
               { !isUserLoggedIn &&  <li className="navbar-action display-align-center clickable-object">
                     <i className="fa-solid fa-user"></i>
-                    <Link to="/login"><p>Login</p></Link>
+                    <Link to="/login"><p>Sign in</p></Link>
                 </li>}
                 { isUserLoggedIn &&  <li className="navbar-action display-align-center clickable-object">
                 <i className="fa-solid fa-user navbar-icon"></i>
