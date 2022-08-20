@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { 
-    Background, 
     Aside, 
     NewNote
 } from "../../Components";
@@ -25,7 +24,6 @@ export const Dashboard = () => {
 
     return ( 
         <div className="dashboard">
-            
             <Aside setNewNote={setNewNoteEditor}/>
             <NewNote 
                 hideNewNoteEditor={hideNewNoteEditor} 
@@ -53,7 +51,6 @@ export const Dashboard = () => {
                         style={{backgroundColor: (color == false)? "var(--color-faint-white)" : color}}
                         key={note._id}
                         >
-                            {/* <i className="fa-solid fa-thumbtack icon-pin"></i> */}
                             <div className="header display-align-center display-justify-space-between">
                                 <h5 className="note-title">
                                     {title}
@@ -111,7 +108,7 @@ export const Dashboard = () => {
                 
         :
         <div>
-            <p className="thoughts text-align-center">no notes to display</p>
+            <img src="assets/empty.gif"/>
         </div> 
 }
         </div>

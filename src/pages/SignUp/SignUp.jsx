@@ -31,10 +31,11 @@ export const SignUpPage = () => {
     return(
         <div className="sign-up-page display-align-center display-justify-center">
             <div className="image-container display-align-start">
-                <img src="assets/signup-header.svg" alt="login-header-img"/>
+                <img src="assets/notessignup.gif" alt="signup-header-gif"/>
             </div>
+            <div className="form-container">
             <form className="signup-form" onSubmit={(e) => {signupHandler(e, signupDetails)}}>
-                <h3 className="form-heading">Sign Up</h3>
+                <h3 className="form-heading">sign up</h3>
                 <ul>
                     <li>
                         <label forlabel="Email-Address">
@@ -156,6 +157,7 @@ export const SignUpPage = () => {
                     </button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }
