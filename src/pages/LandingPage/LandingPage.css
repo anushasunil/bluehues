@@ -1,10 +1,10 @@
 .home-page {
-    gap: 15%;
     margin:2% 5%;
 }
 
-.image-container {
+.home-page .image-container {
     margin: 0;
+    width:45%;
 }
 
 .home-page .heading {
@@ -13,7 +13,7 @@
 }
 
 .home-page .contents {
-    width: 40%;
+    width: 38%;
     gap: 2rem;
 }
 

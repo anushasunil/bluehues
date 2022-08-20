@@ -1,11 +1,23 @@
 .sign-up-page {
-    gap: 5%;
     min-width: 28rem; 
+    position: relative;
+    margin:0 3%;
 }
 
-.image-container {
-    margin: 5% 0;
-    align-self: flex-start
+.sign-up-page .image-container {
+    margin: 0;
+    align-self: flex-start;
+    position:sticky;
+    width:45%;
+}
+
+.sign-up-page .form-container {
+    width: 40%;
+}
+
+.sign-up-page form {
+    width: 60%;
+    margin: 2% 0;
 }
 
 @media (max-width: 1130px) {

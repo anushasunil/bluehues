@@ -4,8 +4,8 @@
     position: relative;
 }
 
-.heading {
-    margin: 2rem;
+.dashboard .heading {
+    margin: 0 2rem;
 
 }
 
@@ -15,11 +15,6 @@
    grid-template-columns: repeat(auto-fill, 28rem);
    align-items: center;
    margin-bottom: 6rem;
-}
-
-.thoughts {
-    color: var(--color-light-gray);
-    font-style: italic;
 }
 
 @media(max-width: 700px) {

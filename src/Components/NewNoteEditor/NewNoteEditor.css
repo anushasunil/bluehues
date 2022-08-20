@@ -12,6 +12,9 @@
 .note-content-form form {
     width: 60%;
     background-color: var(--color-faint-white);
+    padding:1rem;
+    border-radius: var(--container-border);
+    box-shadow: var(--mild-box-shadow);
 }
 
 .action-box .icons {
@@ -36,7 +39,7 @@ form textarea {
 form textarea, form .new-note-title {
     background-color: var(--color-reset);
     margin: 8px;
-    padding: 1rem;
+    padding:8px;
     border: none;
     outline: none;
     border-radius: 0;
@@ -70,6 +73,7 @@ form textarea::placeholder, form .new-note-title::placeholder{
     background-color: var(--color-reset);
     font-size: 1.5rem;
     justify-self: flex-end; 
+    box-shadow: none;
 }
 
 .btn-cancel:hover {
@@ -88,10 +92,6 @@ select {
     border-bottom: 1px solid;
     text-align: center;
     background-color: var(--color-reset);
-}
-
-option {
-    box-shadow: var(--mild-box-shadow);
 }
 
 
