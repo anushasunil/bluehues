@@ -10,9 +10,68 @@ body {
 }
 
 :root {
-    --color-light-gray: grey
+    --color-light-gray: grey;
+
+    /* shadow */
+    --mild-box-shadow: 0 0 4px -1px grey;
 }
 
 .clickable-object {
     cursor: pointer;
+}
+
+.display-align-start {
+    align-items: start;
+}
+
+
+@media (max-width: 1450px) {
+    html {
+        font-size: 14px;
+    }
+
+    .image-container img{
+        width: 80%;
+    }
+
+    .home-page, .login-page {
+        gap: 10%;
+        margin:10% 5%;
+    }
+}
+
+@media (max-width: 1050px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 970px) {
+    .home-page .contents, .login-page form {
+        width: 50%;
+    }
+}
+
+@media (max-width: 760px) {
+    .home-page .contents, .login-page form {
+        width: 65%;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-page .contents, .login-page form {
+        min-width: 90%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .home-page .contents, .login-page form {
+        min-width: 90%;
+    }
+
+    html {
+        font-size: 10px;
+    }
+
 }
