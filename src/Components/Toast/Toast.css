@@ -7,7 +7,6 @@
 @media (max-width: 700px) {
     .Toastify__toast-container {
         width: 80%;
-        left :12%;
         bottom: 7rem;
         font-size: 1.4rem;
     }
