@@ -44,8 +44,12 @@
     backdrop-filter: saturate(500%);
 }
 
-.tags-display  {
+.tags-display, .tags-selected-display  {
     gap: 1rem;
+}
+
+.tags-selected-display {
+    border-bottom: 1px solid;
 }
 
 .tag-color-one {
