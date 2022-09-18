@@ -105,7 +105,7 @@ export const Archives = () => {
                 
         :
         <div>
-            <p className="thoughts text-align-center">no archived notes</p>
+            <img src="assets/empty.gif"/>
         </div> 
 }
         </div>

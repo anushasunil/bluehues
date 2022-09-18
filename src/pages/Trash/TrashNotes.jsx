@@ -103,7 +103,7 @@ export const TrashedNotes = () => {
                 
         :
         <div>
-            <p className="thoughts text-align-center">no trashed notes</p>
+            <img src="assets/empty.gif"/>
         </div> 
 }
         </div>

@@ -4,11 +4,15 @@
     position: relative;
 }
 
+.archives-dashboard .heading {
+    margin: 0 2rem;
+}
+
 .notes-container {
    display: grid;
    grid-template-columns: repeat(auto-fill, 28rem);
    align-items: center;
-   margin-bottom: 6rem;
+   margin-bottom: 2rem;
 }
 
 .thoughts {
