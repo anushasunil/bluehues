@@ -1,10 +1,9 @@
 .color-palette {
-    filter: drop-shadow(3px 4px 3px var(--color-light-gray));
     width: fit-content;
     margin: 1rem 0;
     border-radius: var(--container-border);
-    background-color: var(--color-white);
-
+    background-color: var(--color-faint-white2);
+    box-shadow: var(--mild-box-shadow);
 }
 
 .color-pastel {
@@ -37,4 +36,8 @@
 
 .color-pastel.yellow {
     background-color: var(--color-pastel-yellow);
+}
+
+.color-pastel.default {
+    background-color: var(--color-white);
 }

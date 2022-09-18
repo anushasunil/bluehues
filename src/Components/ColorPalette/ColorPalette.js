@@ -1,12 +1,12 @@
 import "./ColorPalette.css";
 import { useNotes } from "../../contexts";
 
-export const ColorPalette = ({showPalette}) => {
-    const {noteDispatch} = useNotes();
+const colorSet = [
+    "red", "teal", "green", "yellow", "pink", "default"
+]
 
-    const colorSet = [
-        "red", "teal", "green", "yellow", "pink"
-    ]
+const ColorPalette = ({showPalette}) => {
+    const {noteDispatch} = useNotes();
 
     return (
         <div className="color-palette display-align-center" style={{display: showPalette?"flex":"none"}}>
@@ -15,7 +15,7 @@ export const ColorPalette = ({showPalette}) => {
                 return (
                     <div className= {`color-pastel ${color}`} 
                     onClick={()=>{
-                        noteDispatch({type: "NOTE_COLOR", payload: `var(--color-pastel-${color})` })
+                        noteDispatch({type: "NOTE_COLOR", payload: color })
                 }}
                 key={color}
                 ></div>
@@ -24,4 +24,9 @@ export const ColorPalette = ({showPalette}) => {
         }
         </div>
     )
+}
+
+export {
+    ColorPalette,
+    colorSet
 }
