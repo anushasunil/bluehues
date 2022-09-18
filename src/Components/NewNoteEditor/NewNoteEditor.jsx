@@ -2,7 +2,6 @@ import "./NewNoteEditor.css"
 import { 
     ColorPalette, 
     TagBox, 
-    TagSelect
 } from "..";
 import { useNotes } from "../../contexts";
 
@@ -19,8 +18,10 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
         _id,
         title, 
         content, 
-        priority, 
-        color
+        priority,
+        isPinned,  
+        color,
+        tags
     } = newNote;
 
     const clickHandler = () => {
@@ -31,7 +32,7 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
 
     return (
         <div className={"note-content-form display-align-center display-justify-center " + hideNewNoteEditor}>
-            <form style={{backgroundColor: color}}>
+            <form style={{backgroundColor: `var(--color-pastel-${color})`}}>
                 <div className="form-header display-align-center display-justify-end">
                     <div>
                         <select  
@@ -79,19 +80,16 @@ export const NewNote = ({hideNewNoteEditor, setNewNoteEditor}) => {
                             }
                         }
                     ></i>
-                    <i className="fa-solid fa-box-archive icons clickable-object"></i>
-                    <i className="fa-solid fa-trash-can icons clickable-object"></i>
-                    <i className="fa-solid fa-tags icons clickable-object" 
-                        onClick={()=>
+                    <i className="fa-solid fa-thumbtack icons clickable-object"
+                        style={{backgroundColor: (isPinned)? "var(--color-tertiary-variant2)": "var(--color-reset)"}}
+                        onClick={() => 
                             {
-                                optionDispatch({type: "SHOW_TAGS", payload: !optionState.createTags});
-                                if(optionState.colorPalette) optionDispatch({type: "SHOW_PALETTE", payload: false});
+                                noteDispatch({type: "IS_PINNED", payload: !isPinned})
                             }
                         }
                     ></i>
                 </div>
                 <ColorPalette showPalette={optionState.colorPalette} />
-                <TagSelect showCreateTag={optionState.createTags} optionDispatch={optionDispatch}/>
                 <div className="display-justify-end">
                     <button className={`solid-primary btn-save ${(title.trim())? "" : "solid-disabled"}`}
                     onClick={(e)=>{

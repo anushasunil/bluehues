@@ -19,8 +19,12 @@
 
 .action-box .icons {
     font-size: 2rem;
+    width: 3.7rem;
+    height: 3.7rem;
     color: var(--color-secondary-light);
-    margin: 1rem;
+    padding: 1rem;
+    margin: 0 4px;
+    border-radius: var(--circle-border); 
 }
 
 .action-box .icons:hover {
@@ -58,6 +62,13 @@ form textarea::placeholder, form .new-note-title::placeholder{
     padding: 10px 2rem;
     font-size: 1.3rem;
     justify-self: flex-end;
+}
+
+.btn-pin {
+    background-color: var(--color-reset);
+    box-shadow: none;
+    font-size: 2rem;
+    padding: 0;
 }
 
 .btn-save:hover {
