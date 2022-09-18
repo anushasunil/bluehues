@@ -45,7 +45,7 @@
 }
 
 .tags-display, .tags-selected-display  {
-    gap: 1rem;
+    gap: 2px;
 }
 
 .tags-selected-display {
