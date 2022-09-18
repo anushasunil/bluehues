@@ -5,6 +5,10 @@
     font-family: 'Lato', sans-serif;
 }
 
+html {
+    font-size: 12px;
+}
+
 body {
     background-color: var(--color-white);
 }
@@ -21,7 +25,9 @@ body {
     --color-pastel-green: #C3D8D1e3;
     --color-pastel-red: #FFB7A1e3;
     --color-pastel-pink:#F5CFC2e3;
-    --color-faint-white:  #ffffffd5;
+    --color-pastel-default:#ffffff82 ;
+    --color-faint-white:  #ffffffc9;
+    --color-faint-white2:  #ffffff82;
 
     /* shadow */
     --mild-box-shadow: 0 0 4px -1px grey;
