@@ -5,13 +5,19 @@ const getTodaysDate = () => {
     return `${month} ${date},  ${year}`
 }
 
+const defaultFiltersApplied = {
+    color: [],
+    tags: []
+}
+
 const defaultNote =  {
     title: "",
     content: "",
     status: "NO_STATUS",
     priority: 0,
     tags: [],
-    color: "",
+    color: "default",
+    isPinned: false,
     createdAt: getTodaysDate()
 }
 
@@ -23,16 +29,33 @@ const defaultDataReceived = {
 }
 
 const defaultOptionState = {
-    colorPalette : false,
-    createTags : false
+    colorPalette : false
+} 
+
+const filterReducer = (state, {type, payload}) => {
+    switch(type) {
+        case "FILTER_BY_COLOR" :
+            switch(payload.action){
+                case "ADD":
+                    return ({...state, color: [...state.color, payload.value]});
+                case "REMOVE":
+                    return ({...state, color: state.color.filter(color => color !== payload.value)});
+            }
+        case "FILTER_BY_TAGS" :
+            switch(payload.action){
+                case "ADD":
+                    return ({...state, tags: [...state.tags, payload.value]});
+                case "REMOVE":
+                    return ({...state, tags: state.tags.filter(tags => tags !== payload.value)});
+            }
+        default: return (defaultFiltersApplied)
+    }
 }
 
 const optionReducer = (state, {type, payload}) => {
     switch(type) {
         case "SHOW_PALETTE" :
             return ({...state, colorPalette: payload});
-        case "SHOW_TAGS" :
-            return ({...state, createTags: payload});
         default: return (defaultOptionState)
     }
 }
@@ -43,6 +66,8 @@ const dataReducer = (state, {type, payload}) => {
             return ({...state, notesList : payload});
         case "GET_ARCHIVED_NOTES" :
             return ({...state, archivedNotes: payload });
+        case "GET_PINNED_NOTES" :
+            return ({...state, pinnedNotes: payload });
         case "GET_TRASHED_NOTES":
             return ({...state, trashedNotes: payload})
         default : return (defaultDataReceived)
@@ -70,6 +95,9 @@ const noteReducer = (newNote, { type, payload }) => {
             return ({...newNote, color: payload});
         case "CREATED_AT" :
             return ({...newNote, createdAt : payload});
+        case "IS_PINNED" : 
+            console.log("in reducer", payload)
+            return ({...newNote, isPinned : payload})
         case "UPDATE_NOTE" :
             return ({...payload});
         default: return (defaultNote);
@@ -80,7 +108,9 @@ export {
     defaultDataReceived,
     defaultNote,
     defaultOptionState,
+    defaultFiltersApplied,
     noteReducer,
     dataReducer,
-    optionReducer
+    optionReducer,
+    filterReducer
 }

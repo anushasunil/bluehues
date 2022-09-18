@@ -12,7 +12,9 @@ import {
     noteReducer, 
     dataReducer,
     defaultOptionState,
-    optionReducer 
+    optionReducer,
+    filterReducer,
+    defaultFiltersApplied 
 } from "./note-reducer";
 import { Toast } from "../../Components";
 
@@ -22,6 +24,8 @@ const NoteContextProvider = ({children}) => {
     const [optionState, optionDispatch] = useReducer(optionReducer, defaultOptionState);
     const [newNote, noteDispatch] = useReducer(noteReducer, defaultNote);
     const [dataList, dataListDispatch] = useReducer(dataReducer, defaultDataReceived);
+    const [filtersApplied, filterDispatch] = useReducer(filterReducer, defaultFiltersApplied);
+
     const { 
         isUserLoggedIn, 
         userInfo
@@ -39,11 +43,17 @@ const NoteContextProvider = ({children}) => {
                 } 
             });
                 dataListDispatch({type: "GET_NOTES", payload: notes})
+                console.log(notes, "in context")
+                dataListDispatch({type: "GET_PINNED_NOTES", payload: notes.filter(note => note.isPinned === true)})
             }
         }
         catch(error) {
             console.error(error);
         }
+    }
+
+    const getPinnedNotes = () => {
+        console.log(dataList);
     }
 
     const addNote = async(note) => {
@@ -98,6 +108,8 @@ const NoteContextProvider = ({children}) => {
             });
         }
     }
+
+
 
     const archiveNote = async(note) => {
         try {
@@ -296,6 +308,7 @@ const NoteContextProvider = ({children}) => {
         value = {
             { 
                 getNotes,
+                getPinnedNotes,
                 getArchivedNotes,
                 getTrashedNotes,
                 restoreTrashedNote,
@@ -313,6 +326,9 @@ const NoteContextProvider = ({children}) => {
                 setNewNoteEditor,
                 optionDispatch,
                 optionState,
+                filterDispatch,
+                filtersApplied,
+                defaultFiltersApplied
             }
         }>
             {children}
