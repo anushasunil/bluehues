@@ -21,9 +21,6 @@ export const Dashboard = () => {
         getNotes();
     }, []);
 
-    const pinnedNotes = notesList.filter(note => note.isPinned === true)
-
-
     if(filtersApplied.color.length !== 0) {
         notesList = notesList.filter(note => filtersApplied.color.includes(note.color));
     }
@@ -42,6 +39,8 @@ export const Dashboard = () => {
             notesList = [...temp]
         })
     }
+    
+    const pinnedNotes = notesList.filter(note => note.isPinned === true)
 
 
     return ( 
