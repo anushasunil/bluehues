@@ -42,6 +42,7 @@ aside li:hover {
     width: 90%;
     font-size: 1.5rem;
     border-radius: var(--button-border);
+    box-shadow: none;
 }
 
 .btn-create-note:hover {
@@ -56,35 +57,6 @@ aside li:hover {
 
     aside p {
         display: none;
-    }
-
-    aside li:hover p {
-        display: flex;
-        position: absolute;
-        left: 7rem;
-        padding: 8px;
-        border-radius: var(--container-border);
-        font-weight: normal;
-        z-index: 9;
-    }
-
-    aside p:before {
-        position: absolute;
-        content : "";
-        width: 1rem;
-        height: 1rem;
-        transform: rotate(45deg);
-        left:-6px;
-        top: 8px;
-        z-index: 3;
-    }
-
-    aside li p{
-        filter: drop-shadow(3px 4px 3px var(--color-light-gray));
-    }
-
-    aside p:before, aside li:hover p {
-        background-color: var(--color-white);
     }
 
     .btn-expanded {
