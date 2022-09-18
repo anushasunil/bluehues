@@ -11,3 +11,9 @@
         font-size: 1.4rem;
     }
 }
+
+@media (max-width: 480px) {
+    .Toastify__toast-container {
+       left: 10%;
+    }
+}
