@@ -1,18 +1,30 @@
-.image-container img{
-    width: 70%
+.login-page .image-container {
+    width:40%;
+    margin: 0;
 }
 
-.image-container {
-    align-self: flex-start;
+.login-page .image-container img{
+    width:70%;
+    min-width: 30rem;
 }
 
+.login-page {
+    margin:0 3%;
+}
 
-form {
+.login .form-container {
+    width:40%;
+}
+
+.login-page form {
     width: clamp(20rem, 30rem, 35rem);
     padding: 1rem;
-    box-shadow: var(--mild-box-shadow);
     border-radius: var(--container-border);
-    margin: 3% 0;
+    margin: 0 auto;
+}
+
+.login-page form input {
+    padding: 14px 4px;
 }
 
 .form-heading {
@@ -40,12 +52,17 @@ form li{
     margin: 1rem 0;
 }
 
+form .input-icon-container {
+    border: none;
+    padding:0 1rem;
+}
+
 .save-my-info {
     gap: 8px;
 }
 
 .actions {
-    padding: 8px;
+    padding: 12px;
 }
 
 .actions span p,
@@ -62,9 +79,8 @@ form li{
     font-size: 1.3rem;
 }
 
-button {
-    border-radius: 0;
-    box-shadow: var(--shadow-mild);
+.login-page button {
+    border-radius: var(--container-border);
 }
 
 .action-btn button {
@@ -106,6 +122,18 @@ button {
     border-bottom: 1px solid;
 }
 
-.login-page {
-    gap: 5%;
+@media (max-width: 1000px) {
+    .login-page {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .login-page .image-container {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .login-page .form-container {
+        width: 100%;
+    }
 }

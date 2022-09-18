@@ -1,33 +1,18 @@
 import axios from "axios";
-import { createContext, useContext, useReducer, useState } from "react";
+import { 
+    createContext, 
+    useContext, 
+    useReducer, 
+    useState 
+} from "react";
 import { useNavigate } from "react-router-dom";
-import { useLogin } from "./login-context";
+import { useLogin } from "../login/login-context";
+import { 
+    signupReducer, 
+    defaultSignUpdetailsTemplate 
+} from "./signup-reducer";
 
 const SignupContext = createContext("");
-
-const defaultSignUpdetailsTemplate = {
-    email: "",
-    firstName: "",
-    lastName: "",
-    password: "",
-    contact: "",
-}
-
-const signupReducer = (signupDetails, {type, payload}) => {
-    switch(type) {
-        case "EMAIL" :
-            return {...signupDetails, email : payload}
-        case "PASSWORD" : 
-            return {...signupDetails, password : payload}
-        case "FIRST_NAME" : 
-            return {...signupDetails, firstName : payload}
-        case "LAST_NAME" : 
-            return {...signupDetails, lastName : payload}
-        case "PHONE_NO" : 
-            return {...signupDetails, contact : payload}
-        default: return ({...defaultSignUpdetailsTemplate})
-    }
-}
 
 const SignupContextProvider = ({children}) => {
     const [signupDetails, signupDispatch] = useReducer(signupReducer, defaultSignUpdetailsTemplate);
@@ -68,4 +53,7 @@ const SignupContextProvider = ({children}) => {
 
 const useSignup = () => useContext(SignupContext);
 
-export {useSignup, SignupContextProvider}
+export {
+    useSignup, 
+    SignupContextProvider
+}

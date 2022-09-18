@@ -1,15 +1,46 @@
 .sign-up-page {
-    gap: 5%;
     min-width: 28rem; 
+    position: relative;
+    margin:0 3%;
 }
 
-.image-container {
-    margin: 5% 0;
-    align-self: flex-start
+.sign-up-page .image-container {
+    margin: 0;
+    align-self: flex-start;
+    position:sticky;
+    width:40%;
+    min-width: 30rem;
+}
+
+.sign-up-page form {
+    width: clamp(20rem, 30rem, 35rem);
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.sign-up-page form input {
+    padding: 14px 4px;
 }
 
 @media (max-width: 1130px) {
     .image-container img {
         margin: 2% auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    .sign-up-page {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sign-up-page .image-container {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .sign-up-page .form-container {
+        width: 100%;
+        margin: 0 auto;
     }
 }

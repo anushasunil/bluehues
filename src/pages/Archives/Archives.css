@@ -1,0 +1,30 @@
+.archives-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    position: relative;
+}
+
+.archives-dashboard .heading {
+    margin: 0 2rem;
+}
+
+.notes-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, 28rem);
+   align-items: center;
+   margin-bottom: 2rem;
+}
+
+.thoughts {
+    color: var(--color-light-gray);
+    font-style: italic;
+    display: block;
+}
+
+@media(max-width: 700px) {
+
+    .archives-dashboard {
+       grid-template-columns: 1fr 8fr;
+    }
+
+}

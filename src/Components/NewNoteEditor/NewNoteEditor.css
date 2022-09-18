@@ -1,0 +1,113 @@
+.note-content-form {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    z-index: 9;
+}
+
+.form-header {
+    gap: 1rem
+}
+
+.note-content-form form {
+    width: 60%;
+    background-color: var(--color-faint-white);
+    padding:1rem;
+    border-radius: var(--container-border);
+    box-shadow: var(--mild-box-shadow);
+}
+
+.action-box .icons {
+    font-size: 2rem;
+    width: 3.7rem;
+    height: 3.7rem;
+    color: var(--color-secondary-light);
+    padding: 1rem;
+    margin: 0 4px;
+    border-radius: var(--circle-border); 
+}
+
+.action-box .icons:hover {
+    color: var(--color-secondary);
+}
+
+form .new-note-title {
+    font-size: 2rem;
+}
+
+form textarea {
+    font-size: 1.7rem;
+    width: 97%
+}
+
+form textarea, form .new-note-title {
+    background-color: var(--color-reset);
+    margin: 8px;
+    padding:8px;
+    border: none;
+    outline: none;
+    border-radius: 0;
+}
+
+form textarea:focus, form .new-note-title:focus {
+    border-bottom: 2px solid var(--color-light-gray);
+}
+
+form textarea::placeholder, form .new-note-title::placeholder{
+    color: var(--color-black);
+}
+
+.btn-save {
+    border-radius: var(--container-border);
+    padding: 10px 2rem;
+    font-size: 1.3rem;
+    justify-self: flex-end;
+}
+
+.btn-pin {
+    background-color: var(--color-reset);
+    box-shadow: none;
+    font-size: 2rem;
+    padding: 0;
+}
+
+.btn-save:hover {
+    box-shadow: none;
+}
+
+.hide {
+    display: none
+}
+
+.btn-cancel {
+    border-radius: var(--container-border);
+    background-color: var(--color-reset);
+    font-size: 1.5rem;
+    justify-self: flex-end; 
+    box-shadow: none;
+}
+
+.btn-cancel:hover {
+    box-shadow: none;
+}
+
+.select-label, select {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+select {
+    outline: none;
+    border: none;
+    padding: 1rem;
+    border-bottom: 1px solid;
+    text-align: center;
+    background-color: var(--color-reset);
+}
+
+
+@media (max-width: 700px) {
+    .note-content-form form {
+        width: 90%
+    }
+}

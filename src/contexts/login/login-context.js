@@ -1,37 +1,21 @@
 import axios from "axios";
-import { createContext, useContext, useReducer, useState } from "react";
+import { 
+    createContext, 
+    useContext, 
+    useEffect, 
+    useReducer, 
+    useState 
+} from "react";
 import { useNavigate } from "react-router-dom";
+import { 
+    userInfoTemplate, 
+    userInfoReducer, 
+    defaultCredentialTemplate,  
+    loginReducer
+} from "./login-reducer";
+import { Toast } from "../../Components";
 
 const LoginContext = createContext("");
-const defaultCredentialTemplate = {
-    email: "",
-    password: ""
-}
-
-const userInfoTemplate = {
-    details: "",
-    encodedToken: ""
-};
-
-const loginReducer = (userCredentials,{type, payload}) => {
-    switch(type) {
-        case "EMAIL" :
-            return {...userCredentials, email : payload}
-        case "PASSWORD" : 
-            return {...userCredentials, password : payload}
-        default: return ({...defaultCredentialTemplate})
-    }
-}
-
-const userInfoReducer = (userInfo, {type, payload}) => {
-    switch(type) {
-        case "DETAILS" : 
-            return {...userInfo, details: payload}
-        case "ENCODED_TOKEN" :
-            return {...userInfo, encodedToken: payload}
-        default: return ({...userInfoTemplate})
-    }
-}
 
 const LoginContextProvider = ({children}) => {
     const [userCredentials, loginDispatch] = useReducer(loginReducer, defaultCredentialTemplate);
@@ -39,6 +23,15 @@ const LoginContextProvider = ({children}) => {
     const [userInfo, userInfoDispatch] = useReducer(userInfoReducer, userInfoTemplate);
     const [validationMessage, setValidationMessage] = useState("");
     const navigate = useNavigate();
+
+    
+   useEffect(()=>{
+       if(localStorage.getItem("token")){
+            setUserLoggedIn(true)
+            userInfoDispatch({type: "DETAILS", payload: localStorage.getItem("userInfo")});
+            userInfoDispatch({type: "ENCODED_TOKEN", payload: localStorage.getItem("token")});
+       }
+   },[isUserLoggedIn])
 
     const loginHandler = async (e, creds) => {
         e.preventDefault();
@@ -50,11 +43,15 @@ const LoginContextProvider = ({children}) => {
                 setValidationMessage("");
                 if(status === 200) {
                     setUserLoggedIn(true);
-                    userInfoDispatch({type: "DETAILS", payload : foundUser});
+                    userInfoDispatch({type: "DETAILS", payload : foundUser.firstName});
                     userInfoDispatch({type: "ENCODED_TOKEN", payload : encodedToken});
                     navigate("/");
-                    localStorage.setItem("userName", foundUser.firstName);
+                    localStorage.setItem("userInfo", foundUser.firstName);
                     localStorage.setItem("token", encodedToken);
+                    Toast({
+                        message: "User logged in successfully",
+                        type: "success"
+                    })
                 }
             }
             else {
@@ -68,17 +65,18 @@ const LoginContextProvider = ({children}) => {
             else if(error.response.status === 404) {
                 navigate("/signup");
             }
-            else {
-                setValidationMessage("");
-            }
         };
     }
 
     const logoutHandler = () => {
+        Toast({
+            message: "User logged out successfully",
+            type: "success"
+        })
         loginDispatch("KEEP_DEFAULT");
         setUserLoggedIn(false);
-        localStorage.setItem("userName", "");
-        localStorage.setItem("token", "");
+        localStorage.removeItem("userInfo");
+        localStorage.removeItem("token");
     }
 
     return (

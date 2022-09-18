@@ -1,0 +1,43 @@
+.color-palette {
+    width: fit-content;
+    margin: 1rem 0;
+    border-radius: var(--container-border);
+    background-color: var(--color-faint-white2);
+    box-shadow: var(--mild-box-shadow);
+}
+
+.color-pastel {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--circle-border);
+    margin: 8px;
+    cursor: pointer;
+}
+
+.color-pastel:hover {
+    border: 1px solid var(--color-light-gray); 
+}
+
+.color-pastel.red {
+    background-color: var(--color-pastel-red);
+}
+
+.color-pastel.pink {
+    background-color: var(--color-pastel-pink);
+}
+
+.color-pastel.green {
+    background-color: var(--color-pastel-green);
+}
+
+.color-pastel.teal {
+    background-color: var(--color-pastel-teal);
+}
+
+.color-pastel.yellow {
+    background-color: var(--color-pastel-yellow);
+}
+
+.color-pastel.default {
+    background-color: var(--color-white);
+}

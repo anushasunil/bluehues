@@ -1,4 +1,4 @@
-@import url(https://mondayblues.netlify.app/stylesheets/main.css);        
+@import url('https://mondayblues.netlify.app/stylesheets/main.css');        
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 * {
@@ -10,7 +10,20 @@ body {
 }
 
 :root {
-    --color-light-gray: grey;
+    /* colors */
+    --color-light-gray: #808080;
+    --color-faint-blue : #10224b0a;
+    --color-dark-blue : #00195224;
+    --color-black: #000000;
+    --color-solid-blue: #bac0d0b7;
+    --color-pastel-teal: #5E9697e3;
+    --color-pastel-yellow:#f0bc69e3;
+    --color-pastel-green: #C3D8D1e3;
+    --color-pastel-red: #FFB7A1e3;
+    --color-pastel-pink:#F5CFC2e3;
+    --color-pastel-default:#ffffff82 ;
+    --color-faint-white:  #ffffffc9;
+    --color-faint-white2:  #ffffff82;
 
     /* shadow */
     --mild-box-shadow: 0 0 4px -1px grey;
@@ -22,6 +35,20 @@ body {
 
 .display-align-start {
     align-items: start;
+}
+
+.display-justify-end {
+    display: flex;
+    justify-content: end;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray);
+    border-radius: 1rem;
 }
 
 

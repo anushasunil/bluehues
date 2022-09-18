@@ -2,11 +2,16 @@ import "../LoginPage/LoginPage.css"
 import "./SignUp.css"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useSignup } from "../../contexts/signup-context";
+import { useSignup } from "../../contexts/signup/signup-context";
 
 export const SignUpPage = () => {
 
-    const {signupDetails, signupDispatch, validationMessage, signupHandler} = useSignup();
+    const {
+        signupDetails, 
+        signupDispatch, 
+        validationMessage, 
+        signupHandler
+    } = useSignup();
     const [inputType, setInputType] = useState("password");
     const [isAPasswordMatch, setPasswordMatch] = useState("");
     const inputTypeHandler = () => {
@@ -26,10 +31,11 @@ export const SignUpPage = () => {
     return(
         <div className="sign-up-page display-align-center display-justify-center">
             <div className="image-container display-align-start">
-                <img src="assets/signup-header.svg" alt="login-header-img"/>
+                <img src="assets/notessignup.gif" alt="signup-header-gif"/>
             </div>
+            <div className="form-container">
             <form className="signup-form" onSubmit={(e) => {signupHandler(e, signupDetails)}}>
-                <h3 className="form-heading">Sign Up</h3>
+                <h3 className="form-heading">sign up</h3>
                 <ul>
                     <li>
                         <label forlabel="Email-Address">
@@ -133,26 +139,6 @@ export const SignUpPage = () => {
                         {isAPasswordMatch && <small className="validation-message">{isAPasswordMatch}</small>}
                     </li>
                     <li>
-                        <label forlabel="phone-no">
-                            Contact no.
-                        </label>
-                        <div className="input-box display-flex-column">
-                            <div className="input-icon-container">
-                                <input 
-                                type="number" 
-                                maxLength={10}
-
-                                placeholder="phone no." 
-                                className="flex-grow"
-                                onChange={(e)=>{
-                                    if(e.target.value.length !== 0)
-                                        signupDispatch({type: "PHONE_NO", payload: e.target.value})
-                                }}  
-                                />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
                          {validationMessage && (<small className="validation-message bold">{validationMessage}</small>)} 
                     </li>
                 </ul>
@@ -171,6 +157,7 @@ export const SignUpPage = () => {
                     </button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }

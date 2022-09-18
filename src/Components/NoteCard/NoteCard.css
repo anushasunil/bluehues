@@ -1,0 +1,81 @@
+.note {
+    width: clamp(23rem, 25rem, 28rem);
+    height: 26.5rem;
+    padding: 1rem;
+    border-radius: var(--container-border);
+    position: relative;
+    box-shadow: var(--mild-box-shadow);
+    margin: 2rem;
+    background-color: var(--color-pastel-green);
+}
+
+.note .header {
+    margin-top: 2rem;
+}
+
+.note-title {
+    font-size: 1.5rem;
+}
+
+.created-details {
+    padding: 0 8px;
+    color: var(--color-gray);
+}
+
+.created-details small {
+    font-size: 1.2rem;
+}
+
+.badge.notification.text {
+    font-size:1rem;
+    padding: 14px;
+    line-height: 0.5;
+    border-radius: var(--button-border);
+    top:2.5rem;
+    right:1rem;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    z-index: 0;
+}
+
+.note-content {
+    outline: none;
+    border: none;
+    background-color: var(--color-reset);
+    font-size: 1.2rem;
+}
+
+.tags-to-display {
+    gap:8px
+}
+
+.tags-to-display .tags p{
+    font-size: 1.2rem
+}
+
+.note .action-box .icons{
+    font-size: 1.7rem;
+    padding: 1rem;
+    margin: 0;
+    border-radius: var(--circle-border);
+    position: relative;
+}
+
+.note .icon-pin {
+    font-size: 1.5rem;
+    padding: 1rem;
+    position: absolute;
+    margin: 8px;
+    right:0;
+    top:0
+}
+
+.note .icons:hover {
+    color: var(--color-primary);
+}
+
+@media (max-width: 700px) {
+    .note .action-box .icons{
+        font-size: 1.8rem;
+    }
+}

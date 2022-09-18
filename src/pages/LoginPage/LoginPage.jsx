@@ -1,12 +1,17 @@
 import "./LoginPage.css"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useLogin } from "../../contexts/login-context";
+import { useLogin } from "../../contexts/login/login-context";
 
 export const LoginPage = () => {
 
     const [inputType, setInputType] = useState("password");
-    const {userCredentials, loginDispatch, loginHandler, validationMessage} = useLogin();
+    const {
+        userCredentials, 
+        loginDispatch, 
+        loginHandler, 
+        validationMessage
+    } = useLogin();
     const inputTypeHandler = () => {
         (inputType === "password")?
             setInputType("text")
@@ -17,10 +22,13 @@ export const LoginPage = () => {
     return(
         <div className="login-page display-align-center display-justify-center">
             <div className="image-container display-align-start">
-                <img src="assets/login-header.svg" alt="login-header-img"/>
+                <img src="assets/noteslogin.gif" alt="login-header-img"/>
             </div>
-            <form className="login-form" onSubmit={(e) => {loginHandler(e, userCredentials)}}>
-                <h3 className="form-heading">Log In</h3>
+            <div className="form-container">
+            <form className="login-form"
+                onSubmit={(e) => {loginHandler(e, userCredentials)}}
+            >
+                <h3 className="form-heading">sign in</h3>
                 <ul>
                     <li>
                         <label forlabel="Email-Address">
@@ -29,13 +37,13 @@ export const LoginPage = () => {
                         <div className="input-box display-flex-column">
                             <div className="input-icon-container">
                                 <input 
-                                type="email" 
-                                placeholder="anusha@neog.camp" 
-                                className="flex-grow"
-                                onChange={(e)=>{
-                                    if(e.target.value.length !== 0)
-                                        loginDispatch({type: "EMAIL", payload: e.target.value})
-                                }}  
+                                    type="email" 
+                                    placeholder="anusha@neog.camp" 
+                                    className="flex-grow"
+                                    onChange={(e)=>{
+                                        if(e.target.value.length !== 0)
+                                            loginDispatch({type: "EMAIL", payload: e.target.value})
+                                    }}  
                                 />
                             </div>
                         </div>
@@ -94,6 +102,7 @@ export const LoginPage = () => {
                     </button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }
