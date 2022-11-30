@@ -50,7 +50,7 @@ export const Archives = () => {
                         return (
                     
                         <div className="note display-flex-column display-justify-space-between" 
-                        style={{backgroundColor: (color == false)? "var(--color-faint-white)" : color}}
+                        style={{backgroundColor: (color == false)? "var(--color-faint-white)" : `var(--color-pastel-${color})`}}
                         key={note._id}
                         >
                             <div className="header display-align-center display-justify-space-between">
